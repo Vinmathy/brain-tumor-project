@@ -38,7 +38,8 @@ python explore.py
 - [x] Step 1: Dataset – found and understood the BraTS 2020 data
 - [x] Step 2: Python setup – virtual environment and libraries
 - [x] Step 3: Exploring scans – compared 4 MRI modalities, overlaid tumour masks, measured class imbalance (tumour = 2.37% of voxels)
-- [ ] Step 4: Train model
+- [x] Step 4A: Colab setup (Kaggle GPU unavailable), data check, fixed mislabeled seg file (patient 355)
+- [x] Step 4B: Preprocessing – z-score normalisation, label 4→3, crop to 160×192×144 (reduced tumour crop loss from 4.1% avg / 61% max to <0.03%)
 - [ ] Step 5: Viewer
 
 ## Tools
