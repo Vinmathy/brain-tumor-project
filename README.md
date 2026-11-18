@@ -37,7 +37,7 @@ python explore.py
 ## Progress
 - [x] Step 1: Dataset – found and understood the BraTS 2020 data
 - [x] Step 2: Python setup – virtual environment and libraries
-- [x] Step 3: Exploring scans – loaded a FLAIR scan, displayed a slice, checked mask labels
+- [x] Step 3: Exploring scans – compared 4 MRI modalities, overlaid tumour masks, measured class imbalance (tumour = 2.37% of voxels)
 - [ ] Step 4: Train model
 - [ ] Step 5: Viewer
 
