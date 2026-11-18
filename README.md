@@ -40,7 +40,11 @@ python explore.py
 - [x] Step 3: Exploring scans – compared 4 MRI modalities, overlaid tumour masks, measured class imbalance (tumour = 2.37% of voxels)
 - [x] Step 4A: Colab setup (Kaggle GPU unavailable), data check, fixed mislabeled seg file (patient 355)
 - [x] Step 4B: Preprocessing – z-score normalisation, label 4→3, crop to 160×192×144 (reduced tumour crop loss from 4.1% avg / 61% max to <0.03%)
+- [x] Step 4C: Model – lightweight 3D U-Net (base 16 channels, 5.6M parameters, ~22.6 MB)
+- [x] Step 4D (setup): 70/15/15 patient split (seed 42), tumour-biased 128³ patch sampling, Dice + Cross-Entropy loss, mixed-precision training test (1.38 GB peak GPU memory on Tesla T4)
+- [ ] Step 4D: Full training and validation
+- [ ] Step 4E: Testing (Dice for WT / TC / ET)
 - [ ] Step 5: Viewer
 
 ## Tools
-Python 3.12 · NumPy · NiBabel · Matplotlib
+Python 3.12 · NumPy · NiBabel · Matplotlib · PyTorch · Google Colab (Tesla T4 GPU)
