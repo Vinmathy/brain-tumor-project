@@ -42,9 +42,24 @@ python explore.py
 - [x] Step 4B: Preprocessing – z-score normalisation, label 4→3, crop to 160×192×144 (reduced tumour crop loss from 4.1% avg / 61% max to <0.03%)
 - [x] Step 4C: Model – lightweight 3D U-Net (base 16 channels, 5.6M parameters, ~22.6 MB)
 - [x] Step 4D (setup): 70/15/15 patient split (seed 42), tumour-biased 128³ patch sampling, Dice + Cross-Entropy loss, mixed-precision training test (1.38 GB peak GPU memory on Tesla T4)
-- [ ] Step 4D: Full training and validation
-- [ ] Step 4E: Testing (Dice for WT / TC / ET)
+- [x] Step 4D: Full training and validation
+- [x] Step 4E: Testing (Dice for WT / TC / ET)
 - [ ] Step 5: Viewer
+
+## Results (test set, n = 56)
+| Region | Mean ± SD | Median |
+|---|---|---|
+| Whole Tumour (WT) | 0.880 ± 0.098 | 0.903 |
+| Tumour Core (TC) | 0.786 ± 0.221 | 0.859 |
+| Enhancing Tumour (ET) | 0.713 ± 0.254 | 0.806 |
+
+Lightweight 3D U-Net (5.6M parameters), trained 50 epochs (~76 min) on a free Colab Tesla T4.
+
+![Training curves](results/training_curves.png)
+
+**Notes:** ET post-processing (threshold 500 voxels, tuned on validation) improved
+validation ET (0.721 → 0.770) but not test ET (0.713 → 0.711). Error analysis showed
+ET false positives were large, confident regions rather than small noise.
 
 ## Tools
 Python 3.12 · NumPy · NiBabel · Matplotlib · PyTorch · Google Colab (Tesla T4 GPU)
