@@ -34,6 +34,16 @@ pip install numpy nibabel matplotlib
 python explore.py
 ```
 
+## Viewer
+```bash
+pip install torch
+python viewer.py BraTS20_Training_001
+```
+Place the patient's `.nii` files in `data/<patient_id>/`. The viewer shows FLAIR,
+ground truth and model prediction side by side with a slice slider.
+
+![Viewer](results/viewer_001.png)
+
 ## Progress
 - [x] Step 1: Dataset – found and understood the BraTS 2020 data
 - [x] Step 2: Python setup – virtual environment and libraries
@@ -44,7 +54,7 @@ python explore.py
 - [x] Step 4D (setup): 70/15/15 patient split (seed 42), tumour-biased 128³ patch sampling, Dice + Cross-Entropy loss, mixed-precision training test (1.38 GB peak GPU memory on Tesla T4)
 - [x] Step 4D: Full training and validation
 - [x] Step 4E: Testing (Dice for WT / TC / ET)
-- [ ] Step 5: Viewer
+- [x] Step 5: Viewer
 
 ## Results (test set, n = 56)
 | Region | Mean ± SD | Median |

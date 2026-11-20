@@ -52,6 +52,12 @@ print(f"Prediction time (CPU): {time.time() - t0:.1f} s")
 scores = {r: dice_score(np.isin(pred, l), np.isin(gt, l)) for r, l in REGIONS.items()}
 print("Dice:", {r: round(float(s), 3) for r, s in scores.items()})
 
+def z_range(vol, label):
+    z = np.where((vol == label).any(axis=(0, 1)))[0]
+    return f"{z.min()}–{z.max()} ({len(z)} slices)" if len(z) else "none"
+
+print("ET slices | doctor:", z_range(gt, 3), "| model:", z_range(pred, 3))
+
 # ---------- 3. Viewer ----------
 flair = image[0]
 colours = ListedColormap(["red", "green", "yellow"])
